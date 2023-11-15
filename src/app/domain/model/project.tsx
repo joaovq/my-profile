@@ -6,11 +6,16 @@ export type Project = {
 }
 
 export type Tech = {
-    id:number,
+    id: number,
     name: string
 }
 
 export const projects: Project[] = [
-    {id: 1, name: "Project A", description: "This is project A", technologies:[]},
-    {id: 2, name: "Project B", description: "This is project B",technologies:[]}
+    {
+        id: 1,
+        name: "MyDailyPet",
+        description: "App routine for tutor and pet aligns",
+        technologies: [{ id: 1, name: "Android" }]
+    },
+    { id: 2, name: "Project B", description: "This is project B", technologies: [] }
 ]

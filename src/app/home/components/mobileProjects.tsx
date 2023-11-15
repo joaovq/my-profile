@@ -42,7 +42,7 @@ const MobileProjects = () => {
         <div className="content">
             <h1 className="title">Mobile</h1>
             <div className="projects">
-                {mobileProjects?.map((project, index) => <ProjectItem key={index} name={project.name} description={project.description} id={project.id} technologies={project.technologies}/>)}
+                {mobileProjects?.map((project, index) => <ProjectItem key={index} data={project} colorPrimary='#FFF'/>)}
             </div>
         </div>
     </MobileProjectsContainer>
