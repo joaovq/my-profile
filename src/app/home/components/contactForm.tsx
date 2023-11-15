@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import React from 'react'
+import React, { FormEvent } from 'react'
 import styled from 'styled-components'
 
 const Form = styled.form`
@@ -42,9 +42,14 @@ const Form = styled.form`
 `
 
 const ContactForm = () => {
+
+    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault()
+    }
+
     return (
         <>
-            <Form method="post">
+            <Form method="post" onSubmit={handleSubmit}>
                 <div className="emailField">
                     <label htmlFor="contactEmail">Email</label>
                     <div className='boxInput'>
