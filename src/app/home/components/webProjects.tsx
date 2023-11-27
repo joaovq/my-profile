@@ -37,7 +37,7 @@ const WebProjects = () => {
         setProjects(projects)
     }, [])
     return (
-        <ProjectsContainer>
+        <ProjectsContainer id='webprojects'>
             <div className="content">
                 <h1 className="title">Web apps and sites</h1>
                 <div className="projects">

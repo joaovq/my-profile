@@ -11,7 +11,7 @@ const Container = styled.section`
 
 export const Contact = () => {
   return (
-    <Container>
+    <Container id='contact'>
         <h1 className="title">Contact</h1>
         <ContactForm/>
     </Container>

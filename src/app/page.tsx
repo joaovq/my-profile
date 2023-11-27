@@ -6,6 +6,7 @@ import MobileProjects from './home/components/mobileProjects'
 import WebProjects from './home/components/webProjects'
 import Footer from './components/footer/footer'
 import { Contact } from './home/components/contact'
+import ButtonScrollToTop from './components/buttonscrolltotop/scrooltotop'
 
 const MainContainer = styled.main`
 `
@@ -18,6 +19,7 @@ export default function Home() {
       <MobileProjects/>
       <WebProjects/>
       <Contact/>
+      <ButtonScrollToTop/>
       <Footer/>
     </MainContainer>
     </>

@@ -1,7 +1,7 @@
 'use client'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
-import { Project, projects } from '@/app/domain/model/project'
+import { Project, projects as projects } from '@/app/domain/model/project'
 import { ProjectItem } from '@/app/project/components/projectItem'
 
 const MobileProjectsContainer = styled.section`
@@ -38,7 +38,7 @@ const MobileProjects = () => {
     setProjects(projects)
   },[])
   return (
-    <MobileProjectsContainer>
+    <MobileProjectsContainer id='mobileprojects'>
         <div className="content">
             <h1 className="title">Mobile</h1>
             <div className="projects">

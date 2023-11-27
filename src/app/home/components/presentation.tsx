@@ -58,7 +58,7 @@ const Presentation = () => {
         </div>
         <div className="box-button">
           <a href="#contact" id='btn-contact'>Contact me</a>
-          <a href="#contact" id='btn-myproject'>See my projects</a>
+          <a href="#mobileprojects" id='btn-myproject'>See my projects</a>
         </div>
       </div>
       </SectionPresentation>
