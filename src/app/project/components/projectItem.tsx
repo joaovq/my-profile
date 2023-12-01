@@ -6,7 +6,7 @@ const Container = styled.div<{ $colorPrimary: string, $colorSecondary:string,  }
 display: flex;
 flex-direction: column;
 gap: 2rem;
-max-width: 200px;
+max-width: 300px;
 width: 100%;
 height: 100%;
 .content {
