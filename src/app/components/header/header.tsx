@@ -8,7 +8,7 @@ export function Header() {
         <h4>Joaovq</h4>
         <nav>
           <div className={styles.navItems}>
-            <Link href='/'className='active'>HOME</Link>
+            <Link href='/' className='active'>HOME</Link>
             <Link href={`/about`}>ABOUT</Link>
             <Link href={`/`}>CONTACT ME</Link>
           </div>

@@ -10,9 +10,11 @@ const MobileProjectsContainer = styled.section`
     display: flex;
     padding: 3rem 0rem;
     justify-content: center;
+    width: 100%;
+
     .title {
         color: white;
-        font-size: 36px;
+        font-size: 2.5rem;
     }
     .content {
         width: 80%;
@@ -24,9 +26,8 @@ const MobileProjectsContainer = styled.section`
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 2rem;
+        gap: 1rem;
         width: 100%;
-        margin: 6rem 0rem;
         justify-content: space-between;
         align-items: center;
     }

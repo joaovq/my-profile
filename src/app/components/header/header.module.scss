@@ -7,12 +7,16 @@
 }
 
 .headerMainContainer {
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
     gap: 3rem;
+}
+
+.active {
+    opacity: 1;
 }
 
 .navItems {
@@ -24,14 +28,9 @@
         color: v.$base-color;
         font-size: 14px;
         opacity: .8;
-        font-weight: 500;
+        font-weight: 600;
     }
     a:hover {
         opacity: 1;
     }
-}
-
-
-.active {
-    font-weight: bold;
 }

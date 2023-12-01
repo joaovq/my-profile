@@ -13,7 +13,6 @@ const MainContainer = styled.main`
 export default function Home() {
   return (
     <>
-    <Header/>
     <MainContainer>
       <Presentation/>
       <MobileProjects/>

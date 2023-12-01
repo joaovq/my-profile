@@ -6,11 +6,14 @@ const Container = styled.div<{ $colorPrimary: string, $colorSecondary:string,  }
 display: flex;
 flex-direction: column;
 gap: 2rem;
-min-width: 200px;
+max-width: 200px;
+width: 100%;
 height: 100%;
 .content {
     display: flex;
     flex-direction: column;
+    text-overflow: ellipsis;
+    max-lines: 1;
     gap: 1rem;
 }
 .projectTitle {
@@ -34,13 +37,18 @@ height: 100%;
 .tech {
     color: ${ props => props.$colorPrimary};
 }
+@media screen and (max-width: 500px) {
+    h3 {
+        font-size: 1rem;
+    }
+}
 `
 
 export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E" }:ProjectItemProps) => {
     return (
         <Container $colorPrimary={colorPrimary} $colorSecondary={colorSecondary}>
             <div className="content">
-                <h2 className='projectTitle'>{data.name}</h2>
+                <h3 className='projectTitle'>{data.name}</h3>
                 <p className='description'>{data.description}</p>
             </div>
             <div className='tech'>

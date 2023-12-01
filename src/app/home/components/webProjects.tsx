@@ -11,21 +11,21 @@ const ProjectsContainer = styled.section`
     padding: 3rem 0rem;
     justify-content: center;
     .title {
-        font-size: 36px;
+        font-size: 2.5rem;
     }
     .content {
         width: 80%;
         height: 100%;
         display: flex;
         flex-direction: column;
+        gap: 1rem;
     }
     .projects {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 2rem;
+        gap: 1rem;
         width: 100%;
-        margin: 6rem 0rem;
         justify-content: space-between;
         align-items: center;
     }

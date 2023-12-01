@@ -3,9 +3,12 @@ import styled from 'styled-components'
 import ContactForm from './contactForm'
 
 const Container = styled.section`
-    padding: 0 6rem;
+    padding: 0 2rem;
     .title {
         font-size: 36px;
+    }
+    @media (min-width: 500px) {
+        padding: 0 6rem;
     }
 `
 
