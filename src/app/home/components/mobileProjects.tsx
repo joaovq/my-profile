@@ -26,7 +26,7 @@ const MobileProjectsContainer = styled.section`
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        gap: 1rem;
+        gap: 2rem;
         width: 100%;
         justify-content: space-between;
         align-items: center;
