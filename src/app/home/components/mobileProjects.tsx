@@ -11,10 +11,16 @@ const MobileProjectsContainer = styled.section`
     padding: 3rem 0rem;
     justify-content: center;
     width: 100%;
+    position: relative;
 
     .title {
         color: white;
         font-size: 2.5rem;
+        position: sticky;
+        top: 0;
+        left: 0;
+        background: black;
+        padding: 10px 0;
     }
     .content {
         width: 80%;

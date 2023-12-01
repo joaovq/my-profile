@@ -12,6 +12,11 @@ const ProjectsContainer = styled.section`
     justify-content: center;
     .title {
         font-size: 2.5rem;
+        position: sticky;
+        top: 0;
+        left: 0;
+        background: white;
+        padding: 10px 0;
     }
     .content {
         width: 80%;
