@@ -1,9 +1,9 @@
 'use client'
-import Link from 'next/link'
+import { Link } from '../../../navigation'
 import styles from './header.module.scss'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-const HeaderContent = ({home, about, contactMe}: { home: string, about: string, contactMe: string}) => {
+const HeaderContent = ({home, about, contactMe, children}: { home: string, about: string, contactMe: string, children: React.ReactNode}) => {
   const [active, setActive] = useState("home")
   return (
     <header className={styles.headerContainer}>
@@ -24,13 +24,7 @@ const HeaderContent = ({home, about, contactMe}: { home: string, about: string, 
             </Link>
           </div>
         </nav>
-        <div className={styles.selectLanguage}>
-          {/* <select name="language" id={`app-language`} title='languages'>
-            <option value="en">{english}</option>
-            <option value="pt-BR">{portuguese}</option>
-          </select> */}
-           <button>EN</button>
-        </div>
+        {children}
       </div>
     </header>
   )

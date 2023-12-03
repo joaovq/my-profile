@@ -1,8 +1,9 @@
-import { Project } from '@/app/[locale]/domain/model/project'
+import { Project, projects } from '@/app/[locale]/domain/model/project'
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from '../../../../navigation'
 
-const Container = styled.div<{ $colorPrimary: string, $colorSecondary:string,  }>`
+const Container = styled.div<{ $colorPrimary: string, $colorSecondary: string, }>`
 display: flex;
 flex-direction: column;
 gap: 2rem;
@@ -17,16 +18,16 @@ height: 100%;
     gap: 1rem;
 }
 .projectTitle {
-    color: ${ props => props.$colorPrimary};
+    color: ${props => props.$colorPrimary};
 }
 .description {
-    color: ${ props => props.$colorPrimary};
+    color: ${props => props.$colorPrimary};
     font-weight: normal;
 }
 #btn {
-    background-color: ${ props => props.$colorPrimary};
+    background-color: ${props => props.$colorPrimary};
     border-radius: 10px;
-    color: ${ props => props.$colorSecondary || "#1E1E1E"};
+    color: ${props => props.$colorSecondary || "#1E1E1E"};
     padding: 10px;
     max-width: 100px;
     &:hover {
@@ -35,7 +36,7 @@ height: 100%;
     }
 }
 .tech {
-    color: ${ props => props.$colorPrimary};
+    color: ${props => props.$colorPrimary};
 }
 @media screen and (max-width: 500px) {
     h3 {
@@ -44,7 +45,7 @@ height: 100%;
 }
 `
 
-export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E" }:ProjectItemProps) => {
+export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E" }: ProjectItemProps) => {
     return (
         <Container $colorPrimary={colorPrimary} $colorSecondary={colorSecondary}>
             <div className="content">
@@ -52,16 +53,22 @@ export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E" }:P
                 <p className='description'>{data.description}</p>
             </div>
             <div className='tech'>
-                Tags: 
+                Tags:
                 {data.technologies.map((tech, key) => {
                     return (
-                    <>
-                    <span key={tech.id} className='tech'> {tech.name}</span>{key != data.technologies.length-1 ? "," : ""}
-                    </>
+                        <>
+                            <span key={tech.id} className='tech'> {tech.name}</span>{key != data.technologies.length - 1 ? "," : ""}
+                        </>
                     )
                 })}
             </div>
-            <a href={`/projects/${data.id}/`} id='btn'>See more</a>
+            <Link href={{
+                pathname: "/projects/[id]", params: {
+                    id: data.id
+                }
+            }} id='btn'>
+                See more
+            </Link>
         </Container>
     )
 }
