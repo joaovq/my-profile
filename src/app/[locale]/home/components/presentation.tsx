@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import MainImage from '../../../../public/MPhoto.png'
+import MainImage from 'public/MPhoto.png'
 import Image from 'next/image'
 import { FaAws, FaGithub, FaLinkedin, FaVoicemail } from 'react-icons/fa'
 import Link from 'next/link'

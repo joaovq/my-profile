@@ -1,4 +1,4 @@
-@use '../../page.module.scss' as v;
+@use '../../../page.module.scss' as v;
 
 .headerContainer {
     padding: 1rem;
@@ -16,7 +16,7 @@
 }
 
 .active {
-    opacity: 1;
+    color: blue;
 }
 
 .navItems {
@@ -33,4 +33,16 @@
     a:hover {
         opacity: 1;
     }
+}
+
+.selectLanguage select{
+    border: .1px solid rgb(202, 202, 202);
+    border-radius: 10px;
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.selectLanguage {
+    position: relative;
 }

@@ -1,8 +1,8 @@
 'use client'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
-import { Project, projects } from '@/app/domain/model/project'
-import { ProjectItem } from '@/app/project/components/projectItem'
+import { Project, projects } from '@/app/[locale]/domain/model/project'
+import { ProjectItem } from '@/app/[locale]/projects/components/projectItem'
 
 const ProjectsContainer = styled.section`
     background: white;

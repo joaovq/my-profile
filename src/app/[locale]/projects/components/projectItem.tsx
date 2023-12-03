@@ -1,4 +1,4 @@
-import { Project } from '@/app/domain/model/project'
+import { Project } from '@/app/[locale]/domain/model/project'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -61,7 +61,7 @@ export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E" }:P
                     )
                 })}
             </div>
-            <a href={`/project/${data.id}/`} id='btn'>See more</a>
+            <a href={`/projects/${data.id}/`} id='btn'>See more</a>
         </Container>
     )
 }
