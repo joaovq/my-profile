@@ -1,0 +1,13 @@
+{
+    "Header": {
+      "home": "home",
+      "about": "sobre",
+      "contact_me": "Fale comigo",
+      "english": "English",
+      "portuguese": "Portuguese"
+    },
+    "LocaleSwitcher": {
+      "label": "Mude a língua",
+      "locale": "{locale, select, en {Inglês} pt-BR {Português} other {Desconhecido}}"
+    }
+  }
