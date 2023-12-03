@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import styled from 'styled-components'
 import Presentation from './home/components/presentation'
 import MobileProjects from './home/components/mobileProjects'
@@ -6,10 +6,10 @@ import WebProjects from './home/components/webProjects'
 import Footer from '../components/footer/footer'
 import { Contact } from './home/components/contact'
 import ButtonScrollToTop from '../components/buttonscrolltotop/scrooltotop'
-import React from 'react'
 
 const MainContainer = styled.main`
 `
+
 export default function Home() {
   return (
     <MainContainer>

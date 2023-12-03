@@ -1,4 +1,4 @@
-import { Inter } from 'next/font/google'
+'use client'
 import React, { FormEvent } from 'react'
 import styled from 'styled-components'
 

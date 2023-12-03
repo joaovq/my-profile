@@ -1,8 +1,8 @@
-import React from 'react'
+'use client'
 import styled from 'styled-components'
 import MainImage from 'public/MPhoto.png'
 import Image from 'next/image'
-import { FaAws, FaGithub, FaLinkedin, FaVoicemail } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaVoicemail } from 'react-icons/fa'
 import Link from 'next/link'
 
 const SectionPresentation = styled.section`
