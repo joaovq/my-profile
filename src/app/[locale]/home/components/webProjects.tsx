@@ -49,7 +49,7 @@ const WebProjects = () => {
                     {webProjects?.map(
                         (project, index) =>
                             <ProjectItem
-                                key={project.id}
+                                key={index} 
                                 data={project}
                                 colorPrimary="#1E1E1E"
                                 colorSecondary='#FFF'

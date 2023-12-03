@@ -57,7 +57,7 @@ export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E" }: 
                 {data.technologies.map((tech, key) => {
                     return (
                         <>
-                            <span key={tech.id} className='tech'> {tech.name}</span>{key != data.technologies.length - 1 ? "," : ""}
+                            <span key={key} className='tech'> {tech.name}</span>{key != data.technologies.length - 1 ? "," : ""}
                         </>
                     )
                 })}
@@ -74,6 +74,7 @@ export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E" }: 
 }
 
 type ProjectItemProps = {
+    key: number,
     data: Project,
     colorPrimary: string,
     colorSecondary?: string,

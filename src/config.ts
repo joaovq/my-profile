@@ -12,7 +12,7 @@ export const pathnames = {
   "/projects/[id]": {
     en: "/projects/[id]",
     "pt-BR": "/projetos/[id]",
-  },
+  }
 } satisfies Pathnames<typeof locales>;
 
 export type AppPathnames = keyof typeof pathnames;

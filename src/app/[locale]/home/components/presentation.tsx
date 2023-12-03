@@ -87,7 +87,7 @@ const Presentation = () => {
           minWidth: 200,
           marginRight: 40,
           maxWidth: 400
-        }} />
+        }} priority/>
         <div className='social'>
           <Link href={"https://www.linkedin.com/in/joaovitorqueiroz/"} target='_blank'  className='social-item'>
             <FaLinkedin/>
