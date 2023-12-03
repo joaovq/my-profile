@@ -1,7 +1,7 @@
 'use client'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
-import { Project, projects as projects } from '@/app/[locale]/domain/model/project'
+import { Project, projects as projects } from '@/domain/model/project'
 import { ProjectItem } from '@/app/[locale]/projects/components/projectItem'
 
 const MobileProjectsContainer = styled.section`
@@ -49,7 +49,7 @@ const MobileProjects = () => {
         <div className="content">
             <h1 className="title">Mobile</h1>
             <div className="projects">
-                {mobileProjects?.map((project, index) => <ProjectItem key={index} data={project} colorPrimary='#FFF'/>)}
+                {mobileProjects?.map((project, index) => <ProjectItem key={project.id} data={project} colorPrimary='#FFF'/>)}
             </div>
         </div>
     </MobileProjectsContainer>

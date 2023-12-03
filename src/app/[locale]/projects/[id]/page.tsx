@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Project, projects } from '@/app/[locale]/domain/model/project'
+import { Project, projects } from '@/domain/model/project'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { FaGithub, FaGooglePlay, FaLink } from 'react-icons/fa'

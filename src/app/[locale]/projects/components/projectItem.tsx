@@ -1,4 +1,4 @@
-import { Project, projects } from '@/app/[locale]/domain/model/project'
+import { Project, projects } from '@/domain/model/project'
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from '../../../../navigation'

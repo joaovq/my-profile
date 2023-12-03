@@ -1,7 +1,7 @@
 'use client'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
-import { Project, projects } from '@/app/[locale]/domain/model/project'
+import { Project, webProjects  as projects} from '@/domain/model/project'
 import { ProjectItem } from '@/app/[locale]/projects/components/projectItem'
 
 const ProjectsContainer = styled.section`
@@ -49,7 +49,7 @@ const WebProjects = () => {
                     {webProjects?.map(
                         (project, index) =>
                             <ProjectItem
-                                key={index}
+                                key={project.id}
                                 data={project}
                                 colorPrimary="#1E1E1E"
                                 colorSecondary='#FFF'
