@@ -3,6 +3,7 @@
 import React, { ChangeEvent, useTransition } from 'react'
 import styled from 'styled-components'
 import { usePathname, useRouter } from '@/navigation'
+import { useParams } from 'next/navigation'
 
 const Select = styled.select`
     border: .1px solid rgb(202, 202, 202);
@@ -37,10 +38,17 @@ export default function LocaleSwitcherSelect({
     const router = useRouter();
     const [isPending, startTransition] = useTransition();
     const pathname = usePathname();
+    const params = useParams()
 
     function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
         const nextLocale = event.target.value;
-        startTransition(() => router.replace(pathname, { locale: nextLocale }));
+        startTransition(() => router.replace({
+            pathname,
+            // TypeScript will validate that only known `params` are used in combination
+            // with a given `pathname`. Since the two will always match for the current
+            // route, we can skip runtime checks.
+            params: params as any
+          }, { locale: nextLocale }));
     }
 
     return (
