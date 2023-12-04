@@ -1,7 +1,15 @@
 @use '../../page.module.scss' as v;
 
+@keyframes slide-down {
+    0% {
+        transform: translateY(-300px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 .headerContainer {
-    padding: 1rem;
     display: flex;
     justify-content: center;
 }
@@ -35,3 +43,49 @@
     }
 }
 
+.menu {
+    display: none;
+    svg {
+        font-size: large;
+    }
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem;
+    align-items: center;
+    animation: slide-down .6s ease alternate;
+}
+
+
+@media (max-width:734px) {
+    .headerContainer {
+        position: sticky;
+        top: 0;
+        left: 0;
+        background-color: v.$secondary-color;
+    }
+    .navItems {
+        flex-direction: column;
+    }
+    .nav {
+        position: absolute;
+        background-color: v.$secondary-color;
+        top: 80px;
+        width: 100%;
+        text-align: center;
+        flex-direction: column;
+        padding: 30px;
+        gap: 1rem;
+        z-index: -3;
+    }
+    .menu {
+        display: block;
+    }
+}

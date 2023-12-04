@@ -1,17 +1,39 @@
 'use client'
+import { FaBars } from 'react-icons/fa'
 import { Link } from '../../../navigation'
 import styles from './header.module.scss'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import LogoIcon from '../logo/Logo'
 
-const HeaderContent = ({home, about, contactMe, children}: { home: string, about: string, contactMe: string, children: React.ReactNode}) => {
+
+const HeaderContent = ({ home, about, contactMe, children }: { home: string, about: string, contactMe: string, children: React.ReactNode }) => {
   const [active, setActive] = useState("home")
+  const [displayMenu, setDisplay] = useState("flex")
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 734) {
+        setDisplay('flex')
+      } else {
+        setDisplay('none')
+      }
+    })
+  }, [])
+  function handleClickMenu() {
+    if (displayMenu == "flex") {
+      setDisplay("none")
+    } else {
+      setDisplay("flex")
+    }
+  }
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerMainContainer}>
         <Link href='/' >
-          <h4>Joaovq</h4>
+          <LogoIcon/>
         </Link>
-        <nav>
+        <nav className={styles.nav} style={{
+          display: displayMenu
+        }}>
           <div className={styles.navItems}>
             <Link href='/' className={active == "home" ? styles.active : undefined} onClick={() => setActive("home")}>
               {home}
@@ -19,12 +41,15 @@ const HeaderContent = ({home, about, contactMe, children}: { home: string, about
             <Link href="/about" className={active == "about" ? styles.active : undefined} onClick={() => setActive("about")}>
               {about}
             </Link>
-            <Link href={`/`} className={active == "contact" ? styles.active : undefined} onClick={() => setActive("contact")}>
+            <a href="#contact" className={active == "contact" ? styles.active : undefined} onClick={() => setActive("contact")}>
               {contactMe}
-            </Link>
+            </a>
           </div>
+          {children}
         </nav>
-        {children}
+        <div className={styles.menu} onClick={handleClickMenu}>
+          <FaBars />
+        </div>
       </div>
     </header>
   )
