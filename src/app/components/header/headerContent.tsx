@@ -1,14 +1,13 @@
 'use client'
 import { FaBars } from 'react-icons/fa'
-import { Link } from '../../../navigation'
 import styles from './header.module.scss'
 import React, { useEffect, useState } from 'react'
 import LogoIcon from '../logo/Logo'
+import NavigationLink from '../navigationlink/NavigationLink'
 
 
 const HeaderContent = ({ home, about, contactMe, children }: { home: string, about: string, contactMe: string, children: React.ReactNode }) => {
-  const [active, setActive] = useState("home")
-  const [displayMenu, setDisplay] = useState("flex")
+  const [displayMenu, setDisplay] = useState<string>("flex")
   useEffect(() => {
     window.addEventListener('resize', () => {
       if (window.innerWidth > 734) {
@@ -28,22 +27,22 @@ const HeaderContent = ({ home, about, contactMe, children }: { home: string, abo
   return (
     <header className={styles.headerContainer}>
       <div className={styles.headerMainContainer}>
-        <Link href='/' >
+        <NavigationLink href='/' >
           <LogoIcon/>
-        </Link>
+        </NavigationLink>
         <nav className={styles.nav} style={{
           display: displayMenu
         }}>
           <div className={styles.navItems}>
-            <Link href='/' className={active == "home" ? styles.active : undefined} onClick={() => setActive("home")}>
+            <NavigationLink href='/'>
               {home}
-            </Link>
-            <Link href="/about" className={active == "about" ? styles.active : undefined} onClick={() => setActive("about")}>
+            </NavigationLink>
+            <NavigationLink href="/about">
               {about}
-            </Link>
-            <a href="#contact" className={active == "contact" ? styles.active : undefined} onClick={() => setActive("contact")}>
+            </NavigationLink>
+            <NavigationLink href={{pathname: "/contact"}}>
               {contactMe}
-            </a>
+            </NavigationLink>
           </div>
           {children}
         </nav>
