@@ -7,10 +7,21 @@ import { FaGithub, FaGooglePlay, FaLink } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
 
 const Content = styled.main`
-  margin: 7rem 5rem;
+  display: flex;
+  justify-content: center;
+  padding: 5rem 0;
+  .project {
+    width: 80%;
+  }
+  .aboutProject {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
   .title  {
-    h1 {
-      font-size: 48px;
+    h2 {
+      font-size: 32px;
+      margin-right: 90px;
     }
     display: flex;
     flex-direction: column;
@@ -51,8 +62,11 @@ const Content = styled.main`
       }
     }
   }
-  @media (max-width: 400px) {
-    .title {
+  @media (max-width: 600px) {
+    .aboutProject {
+      h2 {
+        font-size: 24px;
+      }
     }
   }
 `
@@ -62,43 +76,47 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
   useEffect(() => {
     const projectFound = projects.find(project => project.id == params.id)
     setProject(projectFound)
-  }, [params.id]) 
+  }, [params.id])
   const ICON_LINK = {
     Github: <FaGithub />,
     Site: <FaLink />,
-    GooglePlay: <FaGooglePlay/>,
-  } 
+    GooglePlay: <FaGooglePlay />,
+  }
   return (
     <>
       <Content>
-        <div className="title">
-          <h1>{project?.name}</h1>
-          <h4 className='desc'>{project?.description}</h4>
-          <div className="tags">
-            Tags:
-            {project?.technologies.map((tech, key) => {
+        <div className="project">
+          <div className="title">
+            <div className='aboutProject'>
+              <h2>{project?.name}</h2>
+              <h4 className='desc'>{project?.description}</h4>
+            </div>
+            <div className="tags">
+              Tags:
+              {project?.technologies.map((tech, key) => {
+                return (
+                  <>
+                    <span key={tech.id} className='tech'> {tech.name}</span>{key != project.technologies.length - 1 ? "," : ""}
+                  </>
+                )
+              })}
+            </div>
+          </div>
+          <div className='content-desc'>
+            <h1>Description</h1>
+            <ReactMarkdown>{project?.text}</ReactMarkdown>
+          </div>
+          <div className='links'>
+            {project?.links.map((link, key) => {
               return (
                 <>
-                  <span key={tech.id} className='tech'> {tech.name}</span>{key != project.technologies.length - 1 ? "," : ""}
+                  <Link href={link.href} key={key} target='_blank' title={link.type} className='link'>
+                    {ICON_LINK[link.type]}
+                  </Link>
                 </>
               )
             })}
           </div>
-        </div>
-        <div className='content-desc'>
-          <h1>Description</h1>
-          <ReactMarkdown>{project?.text}</ReactMarkdown>
-        </div>
-        <div className='links'>
-          {project?.links.map((link, key) => {
-            return (
-              <>
-                <Link href={link.href} key={key} target='_blank' title={link.type} className='link'>
-                  {ICON_LINK[link.type]}
-                </Link>
-              </>
-            )
-          })}
         </div>
       </Content>
     </>
