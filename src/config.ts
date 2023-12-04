@@ -9,6 +9,10 @@ export const pathnames = {
     en: "/about",
     "pt-BR": "/sobre",
   },
+  "/contact": {
+    en: "/contact",
+    "pt-BR": "/contato",
+  },
   "/projects/[id]": {
     en: "/projects/[id]",
     "pt-BR": "/projetos/[id]",
