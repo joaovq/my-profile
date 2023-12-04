@@ -1,24 +1,23 @@
-'use client'
-import styled from 'styled-components'
-import Presentation from './home/components/presentation'
 import MobileProjects from './home/components/mobileProjects'
 import WebProjects from './home/components/webProjects'
 import Footer from '../components/footer/footer'
 import { Contact } from './home/components/contact'
 import ButtonScrollToTop from '../components/buttonscrolltotop/scrooltotop'
-
-const MainContainer = styled.main`
-`
+import Presentation from './home/components/Presentation'
+import { useTranslations } from 'next-intl'
+import AboutPresentation from './about/components/AboutPresentation'
 
 export default function Home() {
+  const t = useTranslations()
   return (
-    <MainContainer>
+    <main>
       <Presentation/>
-      <MobileProjects/>
+      <AboutPresentation/>
+      <MobileProjects title={t("MobileProjects.title")}/>
       <WebProjects/>
       <Contact/>
       <ButtonScrollToTop/>
       <Footer/>
-    </MainContainer>
+    </main>
   )
 }

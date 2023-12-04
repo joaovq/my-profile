@@ -1,13 +1,41 @@
 {
+  "Index": {
+    "en": "English",
+    "pt-BR": "Portuguese"
+  },
   "Header": {
     "home": "home",
     "about": "about",
-    "contact_me": "Contact me",
-    "english": "English",
-    "portuguese": "Portuguese"
+    "contact_me": "Contact me"
   },
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, en {English} pt-BR {Portuguese} other {Unknown}}"
+  },
+  "Presentation": {
+    "title": "Software developer",
+    "description": "Development of web and mobile apps",
+    "textButton": "See my projects"
+  },
+  "MobileProjects": {
+    "title": "Mobile"
+  },
+  "ProjectItem": {
+    "textButton": "See more"
+  },
+  "About": {
+    "title": "About"
+  },
+  "AboutPresentation": {
+    "title": "About"
+  },
+  "WebProjects": {
+    "title": "Web apps, API's and sites"
+  },
+  "Contact": {
+    "title": "Contact"
+  },
+  "ContactForm": {
+    "sendButton": "Send"
   }
 }

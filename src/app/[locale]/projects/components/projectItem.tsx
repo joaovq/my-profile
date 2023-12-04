@@ -1,7 +1,8 @@
-import { Project, projects } from '@/domain/model/project'
+import { Project } from '@/domain/model/project'
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from '../../../../navigation'
+import { useTranslations } from 'next-intl'
 
 const Container = styled.div<{ $colorPrimary: string, $colorSecondary: string, }>`
 display: flex;
@@ -29,7 +30,7 @@ height: 100%;
     border-radius: 10px;
     color: ${props => props.$colorSecondary || "#1E1E1E"};
     padding: 10px;
-    max-width: 100px;
+    max-width: 110px;
     &:hover {
         cursor: pointer;
         opacity: .8;
@@ -45,7 +46,8 @@ height: 100%;
 }
 `
 
-export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E" }: ProjectItemProps) => {
+export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E"}: ProjectItemProps) => {
+    const t = useTranslations("ProjectItem")
     return (
         <Container $colorPrimary={colorPrimary} $colorSecondary={colorSecondary}>
             <div className="content">
@@ -67,7 +69,7 @@ export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E" }: 
                     id: data.id
                 }
             }} id='btn'>
-                See more
+                {t("textButton")}
             </Link>
         </Container>
     )

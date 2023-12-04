@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useEffect, useState } from 'react'
 import { Project, webProjects  as projects} from '@/domain/model/project'
 import { ProjectItem } from '@/app/[locale]/projects/components/projectItem'
+import { useTranslations } from 'next-intl'
 
 const ProjectsContainer = styled.section`
     background: white;
@@ -41,10 +42,11 @@ const WebProjects = () => {
     useEffect(() => {
         setProjects(projects)
     }, [])
+    const t = useTranslations()
     return (
         <ProjectsContainer id='webprojects'>
             <div className="content">
-                <h1 className="title">Web apps and sites</h1>
+                <h1 className="title">{t("WebProjects.title")}</h1>
                 <div className="projects">
                     {webProjects?.map(
                         (project, index) =>

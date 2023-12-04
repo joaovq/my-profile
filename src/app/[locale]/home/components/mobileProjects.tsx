@@ -39,7 +39,11 @@ const MobileProjectsContainer = styled.section`
     }
 `
 
-const MobileProjects = () => {
+type Props = {
+    title: string
+}
+
+const MobileProjects = (props: Props) => {
   const [mobileProjects, setProjects] = useState<Project[]>([])
   useEffect(() => {
     setProjects(projects)
@@ -47,7 +51,7 @@ const MobileProjects = () => {
   return (
     <MobileProjectsContainer id='mobileprojects'>
         <div className="content">
-            <h1 className="title">Mobile</h1>
+            <h1 className="title">{props.title}</h1>
             <div className="projects">
                 {mobileProjects?.map((project, index) => <ProjectItem key={index} data={project} colorPrimary='#FFF'/>)}
             </div>

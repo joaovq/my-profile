@@ -1,13 +1,43 @@
 {
-    "Header": {
-      "home": "home",
-      "about": "sobre",
-      "contact_me": "Fale comigo",
-      "english": "English",
-      "portuguese": "Portuguese"
-    },
-    "LocaleSwitcher": {
-      "label": "Mude a língua",
-      "locale": "{locale, select, en {Inglês} pt-BR {Português} other {Desconhecido}}"
-    }
+  "Index": {
+    "en": "Inglês",
+    "pt-BR": "Português"
+  },
+  "Header": {
+    "home": "home",
+    "about": "sobre",
+    "contact_me": "Fale comigo",
+    "en": "English",
+    "pt-BR": "Portuguese"
+  },
+  "LocaleSwitcher": {
+    "label": "Mude a língua",
+    "locale": "{locale, select, en {Inglês} pt-BR {Português} other {Desconhecido}}"
+  },
+  "Presentation": {
+    "title": "Desenvolvedor de Software",
+    "description": "Desenvolvimento de aplicações web e para dispositivos móveis",
+    "textButton": "Veja meus projetos"
+  },
+  "MobileProjects": {
+    "title": "Dispositivos móveis"
+  },
+  "ProjectItem": {
+    "textButton": "Saiba mais"
+  },
+  "About": {
+    "title": "Sobre"
+  },
+  "AboutPresentation": {
+    "title": "Sobre"
+  },
+  "WebProjects": {
+    "title": "Aplicativos web, API e sites"
+  },
+  "Contact": {
+    "title": "Fale comigo"
+  },
+  "ContactForm": {
+    "sendButton": "Enviar"
   }
+}
