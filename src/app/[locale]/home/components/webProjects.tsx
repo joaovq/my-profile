@@ -1,7 +1,7 @@
 'use client'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
-import { Project, webProjects  as projects} from '@/domain/model/project'
+import { Project, webProjects  as projects} from '@/app/domain/model/project'
 import { ProjectItem } from '@/app/[locale]/projects/components/projectItem'
 import { useTranslations } from 'next-intl'
 

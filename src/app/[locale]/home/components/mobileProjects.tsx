@@ -1,7 +1,7 @@
 'use client'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
-import { Project, projects as projects } from '@/domain/model/project'
+import { Project, projects as projects } from '@/app/domain/model/project'
 import { ProjectItem } from '@/app/[locale]/projects/components/projectItem'
 
 const MobileProjectsContainer = styled.section`

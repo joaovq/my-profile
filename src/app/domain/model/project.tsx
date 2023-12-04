@@ -53,7 +53,7 @@ The application was developed from the good practices indicated by google and th
     },
     {
         id: 2,
-        name: "MyProdusctsFirebaseFirestore App",
+        name: "My Products Firebase Firestore App",
         description: "Demo for Firebase Firestore using Data Binding,\n Navigation, Architecture MVVM, Glide and Preferences API",
         technologies: [
             { id: 1, name: "Android" },
