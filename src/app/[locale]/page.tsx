@@ -5,7 +5,7 @@ import { Contact } from './home/components/contact'
 import ButtonScrollToTop from '../components/buttonscrolltotop/scrooltotop'
 import { useTranslations } from 'next-intl'
 import AboutPresentation from './about/components/AboutPresentation'
-import { Presentation } from './home/components/Presentation'
+import Presentation from './home/components/presentation'
 
 export default function Home() {
   const t = useTranslations()
