@@ -48,6 +48,9 @@ const SectionPresentation = styled.section`
       }
     }
   }
+  @media (max-width: 700px) {
+    flex-direction: column;
+  }
 `
 
 const SectionPresentationLayout = ({ children }: { children: React.ReactNode }) => {
