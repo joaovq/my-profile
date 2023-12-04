@@ -37,7 +37,7 @@ const AboutScreen = () => {
     return (
         <Main>
             <AboutPresentation/>
-            <section className="content">
+            {/* <section className="content">
                 <h1 className="title">{t("title")}</h1>
                 <div className="storytelling">
                     <Image src={MainImage} alt='Human computer interaction' style={{
@@ -55,7 +55,7 @@ const AboutScreen = () => {
                         <p><FaMap /> Sou de Salvador/Bahia</p>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </Main>
     )
 }
