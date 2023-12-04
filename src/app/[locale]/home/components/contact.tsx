@@ -1,21 +1,35 @@
+'use client'
 import styled from 'styled-components'
 import ContactForm from './contactForm'
+import { useTranslations } from 'next-intl'
 
 const Container = styled.section`
-    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
     .title {
         font-size: 36px;
     }
+    .content {
+      width: 80%;
+      padding: 6rem 0;
+      display: flex;
+      gap: 3rem;
+      flex-direction: column;
+    }
     @media (min-width: 500px) {
-        padding: 0 6rem;
     }
 `
 
 export const Contact = () => {
+  const t = useTranslations("Contact")
   return (
     <Container id='contact'>
-        <h1 className="title">Contact</h1>
-        <ContactForm/>
+      <div className="content">
+        <h1 className="title">{t("title")}</h1>
+        <ContactForm />
+      </div>
     </Container>
   )
 }
