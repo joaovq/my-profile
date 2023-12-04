@@ -8,7 +8,7 @@ export type Project = {
 }
 
 export type Link = {
-    id: number, 
+    id: number,
     type: LinkTypes,
     href: string
 }
@@ -17,7 +17,7 @@ export enum LinkTypes {
     GITHUB = 'Github',
     SITE = 'Site',
     G_PLAY = 'GooglePlay',
-} 
+}
 
 export type Tech = {
     id: number,
@@ -63,13 +63,32 @@ The application was developed from the good practices indicated by google and th
         ],
         text: "",
         links: []
+    },
+    {
+        id: 3,
+        name: "Happy Places App",
+        description: "Demo for Firebase Firestore using Data Binding,\n Navigation, Architecture MVVM, Glide and Preferences API",
+        technologies: [
+            { id: 1, name: "Android" },
+            { id: 2, name: "Kotlin" },
+            { id: 3, name: "SQLite" },
+            { id: 4, name: "Storage" },
+        ],
+        text: "",
+        links: [
+            {
+                id: 1,
+                type: LinkTypes.GITHUB,
+                href: "https://github.com/joaovq/HappyPlacesApp"
+            },
+        ]
     }
 ]
 
 export const webProjects: Project[] = [
     {
-        id: 3,
-        name: "🐶 MyDailyPet",
+        id: 4,
+        name: "Customer management",
         description: "App routine for tutor and pet aligns",
         technologies: [{ id: 1, name: "Android" }, { id: 2, name: "Kotlin" }],
         text: `
@@ -87,15 +106,15 @@ The application was developed from the good practices indicated by google and th
                 href: "https://github.com/joaovq/MyDailyPet"
             },
             {
-                id: 1,
+                id: 2,
                 type: LinkTypes.G_PLAY,
                 href: "https://github.com/joaovq/MyDailyPet"
             }
         ]
     },
     {
-        id: 4,
-        name: "MyProdusctsFirebaseFirestore App",
+        id: 5,
+        name: "File upload Service",
         description: "Demo for Firebase Firestore using Data Binding,\n Navigation, Architecture MVVM, Glide and Preferences API",
         technologies: [
             { id: 1, name: "Android" },
@@ -105,5 +124,26 @@ The application was developed from the good practices indicated by google and th
         ],
         text: "",
         links: []
+    },
+    {
+        id: 6,
+        name: "Payment system Service",
+        description: "Demo for Firebase Firestore using Data Binding,\n Navigation, Architecture MVVM, Glide and Preferences API",
+        technologies: [
+            { id: 1, name: "Android" },
+            { id: 2, name: "Kotlin" },
+            { id: 3, name: "SQLite" },
+            { id: 4, name: "Storage" },
+        ],
+        text: "",
+        links: [
+            {
+                id: 1,
+                type: LinkTypes.GITHUB,
+                href: "https://github.com/joaovq/MyDailyPet"
+            },
+        ]
     }
 ]
+
+export const allProjects = [...projects, ...webProjects]

@@ -1,10 +1,13 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { Project, projects } from '@/app/domain/model/project'
+import { Project, allProjects as projects } from '@/app/domain/model/project'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { FaGithub, FaGooglePlay, FaLink } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
+import OtherProjects from '../components/otherProjects'
+import { useProject } from './project.hook'
+import { useTranslations } from 'next-intl'
 
 const Content = styled.main`
   display: flex;
@@ -77,17 +80,15 @@ const Content = styled.main`
   }
 `
 
+const ICON_LINK = {
+  Github: <FaGithub />,
+  Site: <FaLink />,
+  GooglePlay: <FaGooglePlay />,
+}
+
 const ProjectPage = ({ params }: ProjectPageProps) => {
-  const [project, setProject] = useState<Project>()
-  useEffect(() => {
-    const projectFound = projects.find(project => project.id == params.id)
-    setProject(projectFound)
-  }, [params.id])
-  const ICON_LINK = {
-    Github: <FaGithub />,
-    Site: <FaLink />,
-    GooglePlay: <FaGooglePlay />,
-  }
+  const {project, otherProjects} = useProject(params.id)
+  const t = useTranslations("ProjectPage")
   return (
     <>
       <Content>
@@ -109,8 +110,11 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
             </div>
           </div>
           <div className='content-desc'>
-            <h1>Description</h1>
+            <h1>{t("description")}</h1>
             <ReactMarkdown>{project?.text}</ReactMarkdown>
+          </div>
+          <div className='content-desc'>
+            <h1>Links</h1>
           </div>
           <div className='links'>
             {project?.links.map((link, key) => {
@@ -123,6 +127,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
               )
             })}
           </div>
+          <OtherProjects projects={otherProjects}/>
         </div>
       </Content>
     </>
