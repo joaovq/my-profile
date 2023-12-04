@@ -6,6 +6,7 @@ import LogoIcon from '../logo/Logo'
 import NavigationLink from '../navigationlink/NavigationLink'
 
 
+
 const HeaderContent = ({ home, about, contactMe, children }: { home: string, about: string, contactMe: string, children: React.ReactNode }) => {
   const [displayMenu, setDisplay] = useState<string>("flex")
   useEffect(() => {
