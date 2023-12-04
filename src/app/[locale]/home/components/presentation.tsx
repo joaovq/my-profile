@@ -2,7 +2,7 @@ import SectionPresentationLayout from './sectionpresentation'
 import CallToActionPresentation from './CallToActionPresentation'
 import { useTranslations } from 'next-intl'
 
-const Presentation = () => {
+export const Presentation = () => {
   const t = useTranslations("Presentation")
   return (
     <SectionPresentationLayout>
@@ -10,5 +10,3 @@ const Presentation = () => {
     </SectionPresentationLayout>
   )
 }
-
-export default Presentation
