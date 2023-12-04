@@ -27,7 +27,14 @@
     "title": "About"
   },
   "AboutPresentation": {
-    "title": "About"
+    "title": "About",
+    "infoTitle": "My informations",
+    "presentationTitle": "Hi! I am a software developer with experience in developing applications for the web and mobile platforms. My main focus is on Backend Applications and microservices",
+    "location": "I'm from Salvador, Bahia",
+    "time": "I've been a Software Developer for 2 years",
+    "curious": "Extremely curious",
+    "problemSolver": "Problem solver",
+    "publishedApp": "1 App published on Google Play"
   },
   "WebProjects": {
     "title": "Web apps, API's and sites"
@@ -37,5 +44,12 @@
   },
   "ContactForm": {
     "sendButton": "Send"
+  },
+  "OtherProjects": {
+    "textButton":"See project",
+    "title": "Other projects"
+  },
+  "ProjectPage": {
+    "description":"Description"
   }
 }

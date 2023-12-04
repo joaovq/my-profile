@@ -29,7 +29,14 @@
     "title": "Sobre"
   },
   "AboutPresentation": {
-    "title": "Sobre"
+    "title": "Sobre",
+    "infoTitle": "Minhas informações",
+    "presentationTitle": "Olá! Eu sou um Desenvolvedor de software com experiência no desenvolvimento de aplicações para web e para dispositivos móveis. Meu principal foco é no desenvolvimento de aplicações Backend, em que temos maior controle dos dados da aplicação.",
+    "location": "Eu sou de Salvador, Bahia",
+    "time": "Eu sou desenvolvedor de Software há 2 anos",
+    "curious": "Sou extremament curioso",
+    "problemSolver": "Resolvedor de problemas",
+    "publishedApp": "Tenho um app publicado na Google Play"
   },
   "WebProjects": {
     "title": "Aplicativos web, API e sites"
@@ -39,5 +46,12 @@
   },
   "ContactForm": {
     "sendButton": "Enviar"
+  },
+  "OtherProjects": {
+    "textButton":"Ver projeto",
+    "title": "Outros projetos"
+  },
+  "ProjectPage": {
+    "description":"Descrição do projeto"
   }
 }
