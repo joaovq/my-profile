@@ -13,8 +13,8 @@ export default function Home() {
     <main>
       <Presentation/>
       <AboutPresentation/>
-      <MobileProjects title={t("MobileProjects.title")}/>
       <WebProjects/>
+      <MobileProjects title={t("MobileProjects.title")}/>
       <Contact/>
       <ButtonScrollToTop/>
       <Footer/>

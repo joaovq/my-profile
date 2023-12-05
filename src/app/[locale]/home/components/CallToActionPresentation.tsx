@@ -38,7 +38,7 @@ const CallToActionPresentation = (props: Props) => {
                 <span>{props.description}</span>
             </div>
             <div className="box-button">
-                <a href="#mobileprojects" id='btn-myproject'>{props.textButton}</a>
+                <a href="#projectsTitle" id='btn-myproject'>{props.textButton}</a>
             </div>
         </CallToAction>
     )

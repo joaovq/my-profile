@@ -1,7 +1,7 @@
 'use client'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
-import { Project, webProjects  as projects} from '@/app/domain/model/project'
+import { Project, webProjects as projects } from '@/app/domain/model/project'
 import { ProjectItem } from '@/app/[locale]/projects/components/projectItem'
 import { useTranslations } from 'next-intl'
 
@@ -11,6 +11,11 @@ const ProjectsContainer = styled.section`
     display: flex;
     padding: 3rem 0rem;
     justify-content: center;
+    .projectsTitle {
+        font-size: 2.5rem;
+        text-align: center;
+        padding: 1rem 0;
+    }
     .title {
         font-size: 2.5rem;
         position: sticky;
@@ -44,22 +49,25 @@ const WebProjects = () => {
     }, [])
     const t = useTranslations()
     return (
-        <ProjectsContainer id='webprojects'>
-            <div className="content">
-                <h1 className="title">{t("WebProjects.title")}</h1>
-                <div className="projects">
-                    {webProjects?.map(
-                        (project, index) =>
-                            <ProjectItem
-                                key={index} 
-                                data={project}
-                                colorPrimary="#1E1E1E"
-                                colorSecondary='#FFF'
-                            />)
-                    }
+        <>
+            <ProjectsContainer id='webprojects'>
+                <div className="content">
+                    <h1 className='projectsTitle' id='projectsTitle'>{t("WebProjects.projects")}</h1>
+                    <h3 className="title">{t("WebProjects.title")}</h3>
+                    <div className="projects">
+                        {webProjects?.map(
+                            (project, index) =>
+                                <ProjectItem
+                                    key={index}
+                                    data={project}
+                                    colorPrimary="#1E1E1E"
+                                    colorSecondary='#FFF'
+                                />)
+                        }
+                    </div>
                 </div>
-            </div>
-        </ProjectsContainer>
+            </ProjectsContainer>
+        </>
     )
 }
 
