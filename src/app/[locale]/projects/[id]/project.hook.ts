@@ -1,4 +1,4 @@
-import { Project, projects } from "@/app/domain/model/project"
+import { Project, allProjects as projects } from "@/app/domain/model/project"
 import { useEffect, useState } from "react"
 
 export const useProject = (id: number) => {

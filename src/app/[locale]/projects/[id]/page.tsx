@@ -95,8 +95,8 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         <div className="project">
           <div className="title">
             <div className='aboutProject'>
-              <h2>{project?.name}</h2>
-              <h4 className='desc'>{project?.description}</h4>
+              <h2>{t("ProjectItem."+project?.name + ".name")}</h2>
+              <h4 className='desc'>{t("ProjectItem."+project?.name + `.description`)}</h4>
             </div>
             <div className="tags">
               Tags:
@@ -111,7 +111,7 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
           </div>
           <div className='content-desc'>
             <h1>{t("description")}</h1>
-            <ReactMarkdown>{project?.text}</ReactMarkdown>
+            <ReactMarkdown>{t("ProjectItem."+ project?.name + `.text`)}</ReactMarkdown>
           </div>
           <div className='content-desc'>
             <h1>Links</h1>

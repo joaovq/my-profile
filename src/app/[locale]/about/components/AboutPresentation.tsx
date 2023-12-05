@@ -6,14 +6,15 @@ import {
     FaAndroid,
     FaAws,
     FaBatteryFull,
-    FaBug, FaCloud, FaGit,
-    FaGithub, FaGooglePlay, FaJava,
+    FaBug, FaCloud, FaDocker, FaGit,
+    FaGithub, FaGitlab, FaGooglePlay, FaJava,
     FaJs,
     FaMobile,
     FaNetworkWired,
     FaPython,
     FaReact,
-    FaSearchLocation
+    FaSearchLocation,
+    FaTrello
 } from 'react-icons/fa'
 import styled from 'styled-components'
 import StaticLogo from 'public/logo/logo-full-transparent.png'
@@ -143,6 +144,9 @@ const AboutPresentation = () => {
                 <FaMobile title="Mobile" />
                 <FaCloud title="Cloud computing" />
                 <FaGooglePlay title="Google Play" />
+                <FaDocker title="Docker e Docker compose" />
+                <FaTrello title="Trello"/>
+                <FaGitlab title="GitLab"/>
             </div>
         </SectionAbout>
     )

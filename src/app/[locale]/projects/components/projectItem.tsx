@@ -47,12 +47,12 @@ height: 100%;
 `
 
 export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E"}: ProjectItemProps) => {
-    const t = useTranslations("ProjectItem")
+    const t = useTranslations("ProjectPage")
     return (
         <Container $colorPrimary={colorPrimary} $colorSecondary={colorSecondary}>
             <div className="content">
-                <h3 className='projectTitle'>{data.name}</h3>
-                <p className='description'>{data.description}</p>
+                <h3 className='projectTitle'>{t("ProjectItem."+data.name+".name")}</h3>
+                <p className='description'>{t("ProjectItem."+data.name+".description")}</p>
             </div>
             <div className='tech'>
                 Tags:
@@ -69,7 +69,7 @@ export const ProjectItem = ({ data, colorPrimary, colorSecondary = "#1E1E1E"}: P
                     id: data.id
                 }
             }} id='btn'>
-                {t("textButton")}
+                {t("ProjectItem.textButton")}
             </Link>
         </Container>
     )

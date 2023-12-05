@@ -3,6 +3,7 @@ import { Link } from '@/navigation'
 import { useTranslations } from 'next-intl'
 import React from 'react'
 import styled from 'styled-components'
+import { ProjectItem } from './projectItem'
 
 const OtherProjectsContainer = styled.div`
     .moreProjects {
@@ -62,18 +63,12 @@ const OtherProjects = ({projects}:Props) => {
                 {projects.map((project, key) => {
                     return (
                         <div key={key} className="otherProject">
-                            <div className="content">
-                                <h3>{project.name}</h3>
-                                <p >{project.description}</p>
-                            </div>
-                            <Link className='btn' href={{
-                                pathname: "/projects/[id]",
-                                params: {
-                                    id: project.id
-                                }
-                            }}>
-                                {t("textButton")}
-                            </Link>
+                            <ProjectItem
+                                key={key} 
+                                data={project}
+                                colorPrimary="#1E1E1E"
+                                colorSecondary='#FFF'
+                            />
                         </div>
                     )
                 })}

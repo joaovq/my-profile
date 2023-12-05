@@ -22,9 +22,6 @@
   "MobileProjects": {
     "title": "Dispositivos móveis"
   },
-  "ProjectItem": {
-    "textButton": "Saiba mais"
-  },
   "About": {
     "title": "Sobre"
   },
@@ -48,10 +45,43 @@
     "sendButton": "Enviar"
   },
   "OtherProjects": {
-    "textButton":"Ver projeto",
+    "textButton": "Ver projeto",
     "title": "Outros projetos"
   },
   "ProjectPage": {
-    "description":"Descrição do projeto"
+    "description": "Descrição do projeto",
+    "ProjectItem": {
+      "MyDailyPet": {
+        "name": "Minha Rotina Pet",
+        "description": "Aplicativo de rotina para alinhamentos de tutor e pet. O aplicativo foi desenvolvido em Kotlin, Android",
+        "text": "📆 A rotina do meu pet foi pensada na minha necessidade de conseguir organizar as coisas importantes do meu pet em um só lugar. Com o aplicativo você pode criar lembretes, adicionar tarefas e dados do seu animal de estimação. Com isso você tem informações que podem ser necessárias para o dia a dia com seu animal de estimação. My Daily Pet veio para facilitar o seu dia a dia. O aplicativo está disponível na Google Play Store. \n O aplicativo foi desenvolvido a partir das boas práticas indicadas pelo google e através do conhecimento por mim adquirido até o momento. Estas foram algumas das tecnologias, arquiteturas e padrões utilizados:\n"
+      },
+      "My Products Firebase Firestore App": {
+        "name": "Meus produtos Firebase Firestore App",
+        "description": "Demonstração do Firebase Firestore usando Data Binding,\n Navegação, Arquitetura MVVM, Glide e API de Preferências",
+        "text": ""
+      },
+      "Happy Places App": {
+        "name": "Lugares Felizes App",
+        "description": "Aplicativo de armazenamento de fotos e localização de lugares com recordações boas. Aplicativo desenvolvido em Android (Kotlin).",
+        "text": "L"
+      },
+      "Customer management": {
+        "name": "Gestão de Relacionamento com o Cliente (CRM)",
+        "description": "Aplicativo para gestão de clientes, com serviços necessários para um bom CRM.",
+        "text": ""
+      },
+      "File upload Service": {
+        "name": "Serviço de upload de arquivos",
+        "description": "Aplicativo para gerenciamento de arquivos carregados pelo usuário. O serviço foi desenvolvido com Java e Spring Framework.",
+        "text": ""
+      },
+      "Payment system Service": {
+        "name": "Serviço de sistema de pagamento",
+        "description": "Aplicativo para traduzir e ler transações no arquivo CNAB.txt e salva no Banco de Dados. O serviço foi desenvolvido com Java, Spring Framework, Spring Batch.",
+        "text": ""
+      },
+      "textButton": "Saiba mais"
+    }
   }
 }
