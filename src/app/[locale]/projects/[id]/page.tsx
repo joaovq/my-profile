@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import OtherProjects from '../components/otherProjects'
 import { useProject } from './project.hook'
 import { useTranslations } from 'next-intl'
+import LinkList from '../components/linklist'
 
 const Content = styled.main`
   display: flex;
@@ -80,14 +81,8 @@ const Content = styled.main`
   }
 `
 
-const ICON_LINK = {
-  Github: <FaGithub />,
-  Site: <FaLink />,
-  GooglePlay: <FaGooglePlay />,
-}
-
 const ProjectPage = ({ params }: ProjectPageProps) => {
-  const {project, otherProjects} = useProject(params.id)
+  const { project, otherProjects } = useProject(params.id)
   const t = useTranslations("ProjectPage")
   return (
     <>
@@ -95,8 +90,8 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
         <div className="project">
           <div className="title">
             <div className='aboutProject'>
-              <h2>{t("ProjectItem."+project?.name + ".name")}</h2>
-              <h4 className='desc'>{t("ProjectItem."+project?.name + `.description`)}</h4>
+              <h2>{t("ProjectItem." + project?.name + ".name")}</h2>
+              <h4 className='desc'>{t("ProjectItem." + project?.name + `.description`)}</h4>
             </div>
             <div className="tags">
               Tags:
@@ -110,24 +105,21 @@ const ProjectPage = ({ params }: ProjectPageProps) => {
             </div>
           </div>
           <div className='content-desc'>
-            <h1>{t("description")}</h1>
-            <ReactMarkdown>{t("ProjectItem."+ project?.name + `.text`)}</ReactMarkdown>
+            {
+              project?.text !== "" ?
+                <>
+                  <h1>{t("description")}</h1>
+                  <ReactMarkdown>{t("ProjectItem." + project?.name + `.text`)}</ReactMarkdown>
+                </> : null
+            }
           </div>
           <div className='content-desc'>
             <h1>Links</h1>
           </div>
           <div className='links'>
-            {project?.links.map((link, key) => {
-              return (
-                <>
-                  <Link href={link.href} key={key} target='_blank' title={link.type} className='link'>
-                    {ICON_LINK[link.type]}
-                  </Link>
-                </>
-              )
-            })}
+            {project?.links ? <LinkList project={project}/> : "No links"}
           </div>
-          <OtherProjects projects={otherProjects}/>
+          <OtherProjects projects={otherProjects} />
         </div>
       </Content>
     </>

@@ -118,7 +118,13 @@ export const webProjects: Project[] = [
             { id: 4, name: "Render Cloud" },
         ],
         text: "",
-        links: []
+        links: [
+            {
+                id: 1,
+                type: LinkTypes.GITHUB,
+                href: "https://github.com/joaovq/filestorageapi"
+            },
+        ]
     },
     {
         id: 6,
@@ -136,7 +142,7 @@ export const webProjects: Project[] = [
             {
                 id: 1,
                 type: LinkTypes.GITHUB,
-                href: "https://github.com/joaovq/MyDailyPet"
+                href: "https://github.com/joaovq/paymentsystem"
             },
         ]
     }
