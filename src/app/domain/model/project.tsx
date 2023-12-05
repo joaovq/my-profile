@@ -90,7 +90,13 @@ export const webProjects: Project[] = [
         id: 4,
         name: "Customer management",
         description: "Application for management of customers, with services needed for good CRM.",
-        technologies: [{ id: 1, name: "Android" }, { id: 2, name: "Kotlin" }],
+        technologies: [
+            { id: 1, name: "Java" },
+            { id: 2, name: "Spring" },
+            { id: 3, name: "MySQL" },
+            { id: 4, name: "H2Database" },
+            { id: 4, name: "Render Cloud" },
+        ],
         text: "",
         links: [
             {
@@ -105,10 +111,11 @@ export const webProjects: Project[] = [
         name: "File upload Service",
         description: "Application for management files uploaded by user. Service was developed with Java and Spring Framework.",
         technologies: [
-            { id: 1, name: "Android" },
-            { id: 2, name: "Kotlin" },
-            { id: 3, name: "SQLite" },
-            { id: 4, name: "Storage" },
+            { id: 1, name: "Java" },
+            { id: 2, name: "Spring" },
+            { id: 3, name: "MySQL" },
+            { id: 4, name: "H2Database" },
+            { id: 4, name: "Render Cloud" },
         ],
         text: "",
         links: []
