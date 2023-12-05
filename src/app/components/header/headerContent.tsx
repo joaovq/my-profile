@@ -4,6 +4,11 @@ import styles from './header.module.scss'
 import React, { useEffect, useState } from 'react'
 import LogoIcon from '../logo/Logo'
 import NavigationLink from '../navigationlink/NavigationLink'
+import styled from 'styled-components'
+
+const NavContainer = styled.nav<{ display: string }>`
+  display: ${props => props.display};
+`
 
 
 
@@ -29,11 +34,9 @@ const HeaderContent = ({ home, about, contactMe, children }: { home: string, abo
     <header className={styles.headerContainer}>
       <div className={styles.headerMainContainer}>
         <NavigationLink href='/' >
-          <LogoIcon/>
+          <LogoIcon />
         </NavigationLink>
-        <nav className={styles.nav} style={{
-          display: displayMenu
-        }}>
+        <NavContainer className={styles.nav} display={displayMenu}>
           <div className={styles.navItems}>
             <NavigationLink href='/'>
               {home}
@@ -41,12 +44,12 @@ const HeaderContent = ({ home, about, contactMe, children }: { home: string, abo
             <NavigationLink href="/about">
               {about}
             </NavigationLink>
-            <NavigationLink href={{pathname: "/contact"}}>
+            <NavigationLink href={{ pathname: "/contact" }}>
               {contactMe}
             </NavigationLink>
           </div>
           {children}
-        </nav>
+        </NavContainer>
         <div className={styles.menu} onClick={handleClickMenu}>
           <FaBars />
         </div>

@@ -79,6 +79,10 @@ const SectionAbout = styled.section`
         padding: 3rem 0;
         color: gray;
     }
+    .presentationTitle {
+        margin-bottom: 10;
+        text-align: "justify";
+    }
     @media (max-width: 497px) {
         .presentation {
             span {
@@ -107,10 +111,7 @@ const AboutPresentation = () => {
                 <div className="presentation">
                     <h2>{t("infoTitle")}</h2>
                     <br />
-                    <span style={{
-                        marginBottom: 10,
-                        textAlign: "justify"
-                    }}>
+                    <span className='presentationTitle'>
                         {t("presentationTitle")}
                     </span>
                     <br />
@@ -145,8 +146,8 @@ const AboutPresentation = () => {
                 <FaCloud title="Cloud computing" />
                 <FaGooglePlay title="Google Play" />
                 <FaDocker title="Docker e Docker compose" />
-                <FaTrello title="Trello"/>
-                <FaGitlab title="GitLab"/>
+                <FaTrello title="Trello" />
+                <FaGitlab title="GitLab" />
             </div>
         </SectionAbout>
     )
