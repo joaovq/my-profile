@@ -1,7 +1,8 @@
 'use client'
 import { useTranslations } from 'next-intl'
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
+import emailjs from "@emailjs/browser";
 
 const Form = styled.form`
     display: flex;
@@ -58,33 +59,65 @@ const Form = styled.form`
 
 const ContactForm = () => {
     const t = useTranslations("ContactForm")
-
-    function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    useEffect(() => emailjs.init(
+        process.env.NEXT_PUBLIC_API_KEY_EMAIL_JS == null ? "" : process.env.NEXT_PUBLIC_API_KEY_EMAIL_JS
+    ), []);
+    const emailRef = useRef<HTMLInputElement>(null);
+    const nameRef = useRef<HTMLInputElement>(null);
+    const messageRef = useRef<HTMLInputElement>(null);
+    const descriptionRef = useRef<HTMLTextAreaElement>(null);
+    const [loading, setLoading] = useState(false);
+    // TODO transfer to hook
+    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault()
+        const serviceId = process.env.NEXT_PUBLIC_SERVICEID_EMAIL_JS == null ? "" : process.env.NEXT_PUBLIC_SERVICEID_EMAIL_JS;
+        const templateId = process.env.NEXT_PUBLIC_TEMPLATEID_EMAIL_JS == null ? "" : process.env.NEXT_PUBLIC_TEMPLATEID_EMAIL_JS;
+        try {
+            setLoading(true);
+            await emailjs.send(serviceId, templateId, {
+                to_name: "João Vítor",
+                from_name: nameRef.current?.value,
+                name: nameRef.current?.value,
+                recipient: emailRef.current?.value,
+                message: messageRef.current?.value,
+                description: descriptionRef.current?.value,
+            });
+            alert("email successfully sent check inbox");
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setLoading(false);
+        }
     }
 
     return (
         <>
             <Form method="post" onSubmit={handleSubmit}>
                 <div className="field">
+                    <label htmlFor="contactEmail">{t("name.label")}</label>
+                    <div className='boxInput'>
+                        <input type="text" ref={nameRef} id='name' name='name' className={`inputText`} placeholder='Ex: John e. Doe' required />
+                    </div>
+                </div>
+                <div className="field">
                     <label htmlFor="contactEmail">Email</label>
                     <div className='boxInput'>
-                        <input type="text" id='contactEmail' name='contactEmail' className={`inputText`} placeholder='@email.com' />
+                        <input ref={emailRef} type="email" id='contactEmail' name='contactEmail' className={`inputText`} placeholder='@email.com' required />
                     </div>
                 </div>
                 <div className="field">
-                    <label htmlFor="message">Message</label>
+                    <label htmlFor="message">{t("message.label")}</label>
                     <div className="boxInput">
-                        <input type="text" id='message' name='message' className={`inputText`} placeholder='Describe the reason for contact' />
+                        <input type="text" id='message' ref={messageRef} name='message' className={`inputText`} placeholder={t("message.placeholder")} required />
                     </div>
                 </div>
                 <div className="field">
-                    <label htmlFor="message">Description</label>
+                    <label htmlFor="description">{t("description.label")}</label>
                     <div className="boxInput">
-                        <textarea id='description' name='description' className={`inputText`} placeholder="What's your proposal?" />
+                        <textarea id='description' ref={descriptionRef} name='description' className={`inputText`} placeholder={t("description.placeholder")} />
                     </div>
                 </div>
-                <button id='btnSend' type='submit'>{t("sendButton")}</button>
+                <button id='btnSend' type='submit' disabled={loading}>{t("sendButton")}</button>
             </Form>
         </>
     )
