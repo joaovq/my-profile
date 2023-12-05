@@ -60,7 +60,8 @@
     justify-content: space-between;
     gap: 3rem;
     align-items: center;
-    animation: slide-down .6s ease-in-out alternate;
+    animation: slide-down .6s ease-in-out both;
+    animation-direction: alternate;
 }
 
 
