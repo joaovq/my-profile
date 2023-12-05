@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
 import styled from 'styled-components'
 
-const Form = styled.form<{ isFull: boolean }>`
+const Form = styled.form<{ isfull: boolean }>`
     @keyframes sticky {
         0% {
             width: 0%;
@@ -25,7 +25,7 @@ const Form = styled.form<{ isFull: boolean }>`
         }
     }
     #search {
-        display: ${props => props.isFull ? "flex" : "none"};
+        display: ${props => props.isfull ? "flex" : "none"};
         border: none;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         outline: none;
@@ -38,7 +38,7 @@ const SearchForm = () => {
     const t = useTranslations('SearchForm')
     const [isFull, setIsFull] = useState(false)
     return (
-        <Form isFull={isFull}>
+        <Form isfull={isFull}>
             <label htmlFor="search" onClick={() => { setIsFull(!isFull) }}><FaSearch /></label>
             <input type="text" name='search' title='search' id='search' placeholder={t('placeholder')} />
         </Form>
