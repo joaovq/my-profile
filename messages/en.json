@@ -40,7 +40,18 @@
     "title": "Contact"
   },
   "ContactForm": {
-    "sendButton": "Send"
+    "sendButton": "Send",
+    "name": {
+      "label": "Your name"
+    },
+    "message": {
+      "label": "Message",
+      "placeholder": "Describe the reason for contact"
+    },
+    "description": {
+      "label": "Description (Optional)",
+      "placeholder": "What's your proposal?"
+    }
   },
   "OtherProjects": {
     "textButton":"See project",
@@ -81,5 +92,8 @@
       },
       "textButton":"See more"
     }
+  },
+  "SearchForm" : {
+    "placeholder": "Search project"
   }
 }

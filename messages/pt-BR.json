@@ -42,7 +42,18 @@
     "title": "Fale comigo"
   },
   "ContactForm": {
-    "sendButton": "Enviar"
+    "sendButton": "Enviar",
+    "name": {
+      "label": "Seu nome"
+    },
+    "message": {
+      "label": "Mensagem",
+      "placeholder": "Escreva sua mensagem..."
+    },
+    "description": {
+      "label": "Descrição (Opcional)",
+      "placeholder": "Qual a sua proposta?"
+    }
   },
   "OtherProjects": {
     "textButton": "Ver projeto",
@@ -83,5 +94,8 @@
       },
       "textButton": "Saiba mais"
     }
+  },
+  "SearchForm": {
+    "placeholder": "Pesquisar por um projeto"
   }
 }
