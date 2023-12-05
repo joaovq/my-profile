@@ -51,7 +51,8 @@
     "description": {
       "label": "Description (Optional)",
       "placeholder": "What's your proposal?"
-    }
+    },
+    "successMessage": "Email successfully sent. Wait for you to be contacted!"
   },
   "OtherProjects": {
     "textButton":"See project",
