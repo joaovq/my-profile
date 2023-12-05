@@ -3,6 +3,8 @@ import { useTranslations } from 'next-intl'
 import React, { FormEvent, useRef, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Form = styled.form`
     display: flex;
@@ -82,7 +84,7 @@ const ContactForm = () => {
                 message: messageRef.current?.value,
                 description: descriptionRef.current?.value,
             });
-            alert("email successfully sent check inbox");
+            toast.success(t("successMessage"))
         } catch (error) {
             console.log(error);
         } finally {
@@ -92,6 +94,18 @@ const ContactForm = () => {
 
     return (
         <>
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
             <Form method="post" onSubmit={handleSubmit}>
                 <div className="field">
                     <label htmlFor="contactEmail">{t("name.label")}</label>
