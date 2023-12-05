@@ -52,7 +52,8 @@
       "label": "Description (Optional)",
       "placeholder": "What's your proposal?"
     },
-    "successMessage": "Email successfully sent. Wait for you to be contacted!"
+    "successMessage": "Email successfully sent. Wait for you to be contacted!",
+    "loadingMessage": "Sending..."
   },
   "OtherProjects": {
     "textButton":"See project",

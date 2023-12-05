@@ -54,7 +54,8 @@
       "label": "Descrição (Opcional)",
       "placeholder": "Qual a sua proposta?"
     },
-    "successMessage": "Email enviado com sucesso. Aguarde que você será contactado!"
+    "successMessage": "Email enviado com sucesso. Aguarde que você será contactado!",
+    "loadingMessage": "Enviando..."
   },
   "OtherProjects": {
     "textButton": "Ver projeto",

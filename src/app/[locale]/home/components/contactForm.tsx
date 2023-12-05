@@ -64,6 +64,7 @@ const ContactForm = () => {
     useEffect(() => emailjs.init(
         process.env.NEXT_PUBLIC_API_KEY_EMAIL_JS == null ? "" : process.env.NEXT_PUBLIC_API_KEY_EMAIL_JS
     ), []);
+    const formRef = useRef<HTMLFormElement>(null)
     const emailRef = useRef<HTMLInputElement>(null);
     const nameRef = useRef<HTMLInputElement>(null);
     const messageRef = useRef<HTMLInputElement>(null);
@@ -85,6 +86,7 @@ const ContactForm = () => {
                 description: descriptionRef.current?.value,
             });
             toast.success(t("successMessage"))
+            formRef.current?.reset()
         } catch (error) {
             console.log(error);
         } finally {
@@ -106,7 +108,7 @@ const ContactForm = () => {
                 pauseOnHover
                 theme="light"
             />
-            <Form method="post" onSubmit={handleSubmit}>
+            <Form method="post" ref={formRef} onSubmit={handleSubmit}>
                 <div className="field">
                     <label htmlFor="contactEmail">{t("name.label")}</label>
                     <div className='boxInput'>
@@ -131,7 +133,7 @@ const ContactForm = () => {
                         <textarea id='description' ref={descriptionRef} name='description' className={`inputText`} placeholder={t("description.placeholder")} />
                     </div>
                 </div>
-                <button id='btnSend' type='submit' disabled={loading}>{t("sendButton")}</button>
+                <button id='btnSend' type='submit' disabled={loading}>{loading? t("loadingMessage"): t("sendButton")}</button>
             </Form>
         </>
     )
