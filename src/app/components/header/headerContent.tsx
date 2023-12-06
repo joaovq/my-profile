@@ -8,6 +8,7 @@ import styled from 'styled-components'
 
 const NavContainer = styled.nav<{ display: string }>`
   display: ${props => props.display};
+  transition: all 300ms ease-in-out;
 `
 
 
@@ -15,13 +16,16 @@ const NavContainer = styled.nav<{ display: string }>`
 const HeaderContent = ({ home, about, contactMe, children }: { home: string, about: string, contactMe: string, children: React.ReactNode }) => {
   const [displayMenu, setDisplay] = useState<string>("flex")
   useEffect(() => {
-    window.addEventListener('resize', () => {
+    eventResize()
+    window.addEventListener('resize', eventResize)
+
+    function eventResize() {
       if (window.innerWidth > 734) {
         setDisplay('flex')
       } else {
         setDisplay('none')
       }
-    })
+    }
   }, [])
   function handleClickMenu() {
     if (displayMenu == "flex") {
