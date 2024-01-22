@@ -1,10 +1,14 @@
 'use client'
 import { useTranslations } from 'next-intl'
-import React, { FormEvent, useRef, useEffect, useState } from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
-import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { z } from 'zod'
+import { useSendEmailContact } from './contactForm.hook';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from "@hookform/resolvers/zod"
+import { userContactEmailFormData, userContactForm } from './contact.schema';
 
 const Form = styled.form`
     display: flex;
@@ -61,38 +65,19 @@ const Form = styled.form`
 
 const ContactForm = () => {
     const t = useTranslations("ContactForm")
-    useEffect(() => emailjs.init(
-        process.env.NEXT_PUBLIC_API_KEY_EMAIL_JS == null ? "" : process.env.NEXT_PUBLIC_API_KEY_EMAIL_JS
-    ), []);
-    const formRef = useRef<HTMLFormElement>(null)
-    const emailRef = useRef<HTMLInputElement>(null);
-    const nameRef = useRef<HTMLInputElement>(null);
-    const messageRef = useRef<HTMLInputElement>(null);
-    const descriptionRef = useRef<HTMLTextAreaElement>(null);
-    const [loading, setLoading] = useState(false);
-    // TODO transfer to hook
-    async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-        event.preventDefault()
-        const serviceId = process.env.NEXT_PUBLIC_SERVICEID_EMAIL_JS == null ? "" : process.env.NEXT_PUBLIC_SERVICEID_EMAIL_JS;
-        const templateId = process.env.NEXT_PUBLIC_TEMPLATEID_EMAIL_JS == null ? "" : process.env.NEXT_PUBLIC_TEMPLATEID_EMAIL_JS;
-        try {
-            setLoading(true);
-            await emailjs.send(serviceId, templateId, {
-                to_name: "João Vítor",
-                from_name: nameRef.current?.value,
-                name: nameRef.current?.value,
-                recipient: emailRef.current?.value,
-                message: messageRef.current?.value,
-                description: descriptionRef.current?.value,
-            });
-            toast.success(t("successMessage"))
-            formRef.current?.reset()
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setLoading(false);
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm<userContactEmailFormData>(
+        {
+            resolver: zodResolver(userContactForm)
         }
-    }
+    )
+    const formRef = useRef<HTMLFormElement>(null)
+
+    const { loading, handleSendEmail } = useSendEmailContact(
+        () => {
+            toast.success(t("successMessage"))
+            reset()
+        }
+    )
 
     return (
         <>
@@ -108,32 +93,36 @@ const ContactForm = () => {
                 pauseOnHover
                 theme="light"
             />
-            <Form method="post" ref={formRef} onSubmit={handleSubmit}>
+            <Form method="post" ref={formRef} onSubmit={handleSubmit(handleSendEmail)}>
                 <div className="field">
                     <label htmlFor="contactEmail">{t("name.label")}</label>
                     <div className='boxInput'>
-                        <input type="text" ref={nameRef} id='name' name='name' className={`inputText`} placeholder='Ex: John e. Doe' required />
+                        <input type="text" id='name' className={`inputText`} placeholder='Ex: John e. Doe' required {...register("name")} />
                     </div>
+                    {errors.name && <span>{errors.name.message}</span>}
                 </div>
                 <div className="field">
-                    <label htmlFor="contactEmail">Email</label>
+                    <label htmlFor="email">Email</label>
                     <div className='boxInput'>
-                        <input ref={emailRef} type="email" id='contactEmail' name='contactEmail' className={`inputText`} placeholder='@email.com' required />
+                        <input type="email" id='email' className={`inputText`} placeholder='@email.com' required {...register("email")} />
                     </div>
+                    {errors.email && <span>{errors.email.message}</span>}
                 </div>
                 <div className="field">
                     <label htmlFor="message">{t("message.label")}</label>
                     <div className="boxInput">
-                        <input type="text" id='message' ref={messageRef} name='message' className={`inputText`} placeholder={t("message.placeholder")} required />
+                        <input type="text" id='message' className={`inputText`} placeholder={t("message.placeholder")} required {...register("message")} />
                     </div>
+                    {errors.message && <span>{errors.message.message}</span>}
                 </div>
                 <div className="field">
                     <label htmlFor="description">{t("description.label")}</label>
                     <div className="boxInput">
-                        <textarea id='description' ref={descriptionRef} name='description' className={`inputText`} placeholder={t("description.placeholder")} />
+                        <textarea id='description' className={`inputText`} placeholder={t("description.placeholder")} {...register("description")} />
                     </div>
+                    {errors.description && <span>{errors.description.message}</span>}
                 </div>
-                <button id='btnSend' type='submit' disabled={loading}>{loading? t("loadingMessage"): t("sendButton")}</button>
+                <button id='btnSend' type='submit' disabled={loading}>{loading ? t("loadingMessage") : t("sendButton")}</button>
             </Form>
         </>
     )

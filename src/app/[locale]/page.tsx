@@ -1,7 +1,7 @@
 import MobileProjects from './home/components/mobileProjects'
 import WebProjects from './home/components/webProjects'
 import Footer from '../components/footer/footer'
-import { Contact } from './home/components/contact'
+import { Contact } from './home/components/contact/contact'
 import ButtonScrollToTop from '../components/buttonscrolltotop/scrooltotop'
 import { useTranslations } from 'next-intl'
 import AboutPresentation from './about/components/AboutPresentation'
